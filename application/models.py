@@ -5,7 +5,7 @@ class Customer(db.Model):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     email_address = db.Column(db.String(50), nullable=False)
-    orders = db.relationship('orders', backref= 'customer')
+    orders = db.relationship('Order', backref= 'orders')
 
 class Products(db.Model):
     id = db.Column(db.Integer, primary_key=True)
