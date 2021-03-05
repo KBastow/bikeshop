@@ -14,7 +14,7 @@ def add_customers():
 
 @app.route('/add/product')
 def add_products():
-    new_product = Product(product="Canyon Ultimate CFR Di2", quantity="20", price="8649")
+    new_product = Products(product="Canyon Ultimate CFR Di2", quantity="20", price="8649")
     db.session.add(new_product)
     db.session.commit()
     return "New Product Has Been Added"

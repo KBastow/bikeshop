@@ -12,16 +12,16 @@ class Products(db.Model):
     product = db.Column(db.String(100), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
-    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
 
 class OrderLineItems(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    products = db.relationship('Products', backref= 'products')
-    order = db.relationship('Order', backref= 'order')
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+    quantity = db.Column(db.Integer, nullable=False)
+    order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    products_ordered = db.Column(db.Integer, nullable=False)
     total_price = db.Column(db.Integer, nullable=False)
     date_ordered = db.Column(db.Date, nullable=False)
     customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
+    order_line_items = db.relationship('OrderLineItems', backref='order_line_items')
