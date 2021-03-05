@@ -9,9 +9,10 @@ class Customer(db.Model):
 
 class Products(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    product_ordered = db.Column(db.String(100), nullable=False)
+    product = db.Column(db.String(100), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
 
 class OrderLineItems(db.Model):
     id = db.Column(db.Integer, primary_key=True)
