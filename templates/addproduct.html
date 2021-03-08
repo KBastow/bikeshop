@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Add Product to Database </title>
+    </head>
+    <body>
+        <div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.product.label }} {{ form.product }}
+                <br>
+                {{ form.quantity.label }} {{ form.quantity }}
+                <br>
+                {{ form.price.label}} {{form.price}}
+                <br>
+                {{ form.submit }}
+            {{ message }}
+            </form>
+        </div>
+    </body>
+</html>
