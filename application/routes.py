@@ -38,23 +38,30 @@ def read_products():
 
 # UPDATE
 @app.route('/customerupdate/<name>')
-def update_customer(name):
+def update_customers(name):
     first_customer = customer.query.first()
     first_customer.name = name
     db.session.commit()
     return first_customer.name
 
 @app.route('/productupdate/<name>')
-def update_product(name):
+def update_products(name):
     first_product = product.query.first()
     first_product.name = name
     db.session.commit()
     return first_product.name
 
 # DELETE
-# @app.route('/product/delete/<name>')
-# def delete(name):
-#     game_to_delete = Games.query.first()
-#     db.session.delete(game_to_delete)
-#     db.session.commit()
-#     return "Item Deleted From Product Database"
+@app.route('/customer/delete/<name>')
+def delete_customers(name):
+    customer_to_delete = customers.query.first()
+    db.session.delete(customer_to_delete)
+    db.session.commit()
+    return "Customer Has Been Deleted"
+
+@app.route('/product/delete/<name>')
+def delete_products(name):
+    products_to_delete = product.query.first()
+    db.session.delete(product_to_delete)
+    db.session.commit()
+    return "Product Has Been Deleted"
