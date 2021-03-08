@@ -57,15 +57,10 @@ def add_customer():
         last_name = form.last_name.data
         email_address = form.email_address.data
 
-        if len(first_name) == 0 or len(last_name) == 0:
-            error = "Please supply both first and last name"
+        if len(first_name) == 0 or len(last_name) == 0 or len(email_address) == 0:
+            error = "Please supply both first, last name and email"
         else:
-            return ('thank_you', first_name)
-
-        if StringField(email_address) == 0:
-            error = "Please Add Email Address"
-        else:
-            return ('Customer Has Been Added')
+            return ('Done and Dusted, Another New Customer!')
 
         new_customer = Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
         db.session.add(new_customer)
@@ -108,7 +103,7 @@ def add_customer():
 
 class ProductForm(FlaskForm):
     product = StringField('Product Name')
-    quantity = StringField('Product Quantity')
+    quantity = IntegerField('Product Quantity')
     price = IntegerField('Product Price')
 
     submit = SubmitField('Add Product to Database')
@@ -123,12 +118,10 @@ def add_product():
         quantity = form.quantity.data
         price = form.price.data
 
-        if len(product) == 0 or len(quantity) == 0:
-            error = "Please Input both Product and Quantity"
-        if IntegerField(price) == 0:
-            error = "Please Add Item Price"
+        if len(product) == 0 or len(quantity) == 0 or len(price) == 0:
+            error = "Please Input both Product, Quantity and Price"
         else:
-            return ('Product Has Been Added')
+            return ('Nice One More Bikes Are On The Way!')
         
         new_product = Products(product=form.product.data, quantity=form.quantity.data, price=form.price.data)
         db.session.add(new_product)

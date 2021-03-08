@@ -1,24 +1,16 @@
 <html>
     <head>
-        <title>Add Customer to Database</title>
+        <title>Order List</title>
     </head>
     <body>
         <div class='form'>
             <form method='POST' action=''>
-                {{ form.hidden_tag() }}
-                {{ form.first_name.label }} {{ form.first_name }}
                 <br>
-                {{ form.last_name.label }} {{ form.last_name }}
-                <br>
-                {{ form.email_address.label}} {{form.email_address}}
-                <br>
-                {{ form.submit }}
+                <br> <a href="/addcustomer" type="button">Add New Customer</a> </br>'
                 <br>
                 <br> <a href="/addproduct" type="button">Add New Product</a> </br>'
                 <br>
                 <br> <a href="/customerlist" type="button">Customer List</a> </br>'
-                <br>
-                <br> <a href="/orderlist" type="button">Order List</a> </br>'
                 <br>
                 <br> <a href="/productlist" type="button">Product List</a> </br>''
             {{ message }}
