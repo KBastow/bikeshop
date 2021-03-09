@@ -1,5 +1,5 @@
 from application import app, models, db
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateField, IntegerField, DecimalField
 
@@ -128,6 +128,31 @@ def add_product():
         db.session.commit()
 
     return render_template('addproduct.html', form=form, message=error)
+
+
+#CUSTOMER LIST
+
+@app.route('/customerlist', methods=['GET'])
+def customer_list():
+    """Show Customers."""
+    ...
+    return render_template(
+        'users.jinja2',
+        users=User.query.all(),
+        title="Show Customers"
+    )
+
+# PRODUCT LIST
+
+@app.route('/', methods=['GET'])
+def create_user():
+    """Create a user."""
+    ...
+    return render_template(
+        'users.jinja2',
+        users=User.query.all(),
+        title="Show Users"
+    )
 
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0')
