@@ -1,28 +1,39 @@
 <html>
     <head>
-        <title>Add Product to Database </title>
+        <title>Add Product</title>
     </head>
     <body>
+        <h2>Add Product to Database</h2>
+        <p>Enter Details:</p>
+        <div>
         <div class='form'>
             <form method='POST' action=''>
-            {{ form.hidden_tag() }}
-            {{ form.product.label }} {{ form.product }}
+            {{form.hidden_tag()}}
+            {{form.product.label}} 
             <br>
-            {{ form.quantity.label }} {{ form.quantity }}
+            {{form.product}}
             <br>
-            {{ form.price.label}} {{form.price}}
+            {{form.quantity.label}} 
             <br>
-            {{ form.submit }}
-            {{ message}}
+            {{form.quantity}}
+            <br>
+            {{form.price.label}} 
+            <br>
+            {{form.price}}
+            <br>
+            {{form.submit}}
+            {{message}}
             </form>
             <br>
-            <br> <a href="{{url_for('addcustomer')}}" type="buton">Add New Customer</a> </br>
+            <br> <a href="{{url_for('add_customer')}}" type="buton">Add New Customer</a> </br>
             <br>
-            <br> <a href="{{url_for('customerlist')}}" type="button">Customer List</a> </br>
+            <br> <a href="{{url_for('add_order')}}" type="button">Add New Order</a> </br>
             <br>
-            <br> <a href="{{url_for('orderlist')}}" type="button">Order List</a> </br>
+            <br> <a href="{{url_for('customer_list')}}" type="button">Customer List</a> </br>
             <br>
-            <br> <a href="{{url_for('addproduct')}}" type="button">Product List</a> </br>
+            <br> <a href="{{url_for('order_list')}}" type="button">Order List</a> </br>
+            <br>
+            <br> <a href="{{url_for('product_list')}}" type="button">Product List</a> </br>
         </div>
     </body>
 </html>

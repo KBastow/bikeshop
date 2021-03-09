@@ -1,5 +1,5 @@
 from application import app, db
-from application.models import Products, Customer, OrderLineItems, Order
+from application.models import Products, Customer, Order
 
 # from application import app, db
 # from application.models import Games

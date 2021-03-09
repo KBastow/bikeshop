@@ -1,25 +1,56 @@
 <html>
     <head>
-        <title>Customer List</title>
+        <title>Product List</title>
     </head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px
+        }
+        th {
+            text-align: left;
+        }
+        tr:nth-child(even) {
+        background-color: #eee;
+        }
+        tr:nth-child(odd) {
+        background-color: #fff;
+        }
+        th {
+        background-color: black;
+        color: white;
+        }
+    </style>
     <body>
+        <h1>Product List</h1>
+        <p>All Current Products</p>
         <div>
-            <table> 
-            {% for p in product %} 
-            <tr> 
-            <td> {{ p.product }} </td> 
-            <td> {{ p.quantity }}</td>
-            <td> {{ p.price }} </td> 
-            </tr> {% endfor %} 
+            <table style="width:50%">
+                <tr>
+                    {% for p in product %}
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td> {{ p.product }} </td> 
+                    <td> {{ p.quantity }}</td>
+                    <td> {{ p.price }} </td> 
+                </tr> {% endfor %}
             </table>
             <br>
-            <br> <a href="{{url_for('addcustomer')}}" type="button">Add New Customer</a> </br>
+            <br> <a href="{{url_for('add_customer')}}" type="button">Add New Customer</a> </br>
             <br>
-            <br> <a href="{{url_for('addproduct')}}" type="button">Add New Product</a> </br>
+            <br> <a href="{{url_for('add_order')}}" type="button">Add New Order</a> </br>
             <br>
-            <br> <a href="{{url_for('customerlist')}}" type="button">Customer List</a> </br>
+            <br> <a href="{{url_for('add_product')}}" type="button">Add New Product</a> </br>
             <br>
-            <br> <a href="{{url_for('productlist')}}" type="button">Product List</a> </br>
+            <br> <a href="{{url_for('customer_list')}}" type="button">Customer List</a> </br>
+            <br>
+            <br> <a href="{{url_for('order_list')}}" type="button">Product List</a> </br>
         </div>
     </body>
 </html>

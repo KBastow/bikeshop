@@ -1,33 +1,41 @@
 <html>
     <head>
-        <title>Add Customer</title>
+        <title>Add Order</title>
     </head>
     <body>
-        <h2>Add Customer to Database</h2>
+        <h2>Create an Order</h2>
         <p>Enter Details:</p>
         <div>
         <div class='form'>
             <form method='POST' action=''>
             {{form.hidden_tag()}}
-            {{form.first_name.label}} 
+            {{form.product_id.label}} 
             <br>
-            {{form.first_name}}
+            {{form.product_id}}
             <br>
-            {{form.last_name.label}} 
+            {{form.customer_id.label}} 
             <br>
-            {{form.last_name}}
+            {{form.customer_id}}
             <br>
-            {{form.email_address.label}} 
+            {{form.quantity.label}} 
             <br>
-            {{form.email_address}}
+            {{form.quantity}}
+            <br>
+            {{form.total_price.label}}
+            <br>
+            {{form.total_price}}
+            <br>
+            {{form.date_ordered.label}}
+            <br>
+            {{form.date_ordered}}
             <br>
             {{form.submit}}
             {{message}}
             </form>
             <br>
-            <br> <a href="{{url_for('add_product')}}" type="button">Add New Product</a> </br>
+            <br> <a href="{{url_for('add_customer')}}" type="button">Add New Customer</a> </br>
             <br>
-            <br> <a href="{{url_for('add_order')}}" type="button">Add New Order</a> </br>
+            <br> <a href="{{url_for('add_product')}}" type="button">Add New Product</a> </br>
             <br>
             <br> <a href="{{url_for('customer_list')}}" type="button">Customer List</a> </br>
             <br>
