@@ -60,15 +60,16 @@ def add_customer():
         if len(first_name) == 0 or len(last_name) == 0 or len(email_address) == 0:
             error = "Please supply both first, last name and email"
         else:
-            return ('Done and Dusted, Another New Customer!')
+            
+            new_customer = models.Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
+            db.session.add(new_customer)
+            db.session.commit()
 
-        new_customer = Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
-        db.session.add(new_customer)
-        db.session.commit()
+            return ('Done and Dusted, Another New Customer!')
 
     return render_template('addcustomer.html', form=form, message=error)
 
-#HOME
+#Order
 
 # class BasicForm(FlaskForm):
 #     first_name = StringField('First Name')
@@ -121,38 +122,36 @@ def add_product():
         if len(product) == 0 or len(quantity) == 0 or len(price) == 0:
             error = "Please Input both Product, Quantity and Price"
         else:
+            
+            new_product = Products(product=form.product.data, quantity=form.quantity.data, price=form.price.data)
+            db.session.add(new_product)
+            db.session.commit()
+
             return ('Nice One More Bikes Are On The Way!')
-        
-        new_product = Products(product=form.product.data, quantity=form.quantity.data, price=form.price.data)
-        db.session.add(new_product)
-        db.session.commit()
 
     return render_template('addproduct.html', form=form, message=error)
 
 
 #CUSTOMER LIST
 
-@app.route('/customerlist', methods=['GET'])
+@app.route("/customerlist")
 def customer_list():
-    """Show Customers."""
-    ...
-    return render_template(
-        'users.jinja2',
-        users=User.query.all(),
-        title="Show Customers"
-    )
+    customer = models.Customer.query.all()
+    return render_template("customerlist.html", customer=customer)
 
 # PRODUCT LIST
 
-@app.route('/', methods=['GET'])
-def create_user():
-    """Create a user."""
-    ...
-    return render_template(
-        'users.jinja2',
-        users=User.query.all(),
-        title="Show Users"
-    )
+@app.route("/productlist")
+def product_list():
+    product = models.Product.query.all()
+    return render_template("productlist.html", product=product)
+
+#ORDER LIST
+
+@app.route("/orderlist")
+def order_list():
+    order = models.Order.query.all()
+    return render_template("orderlist.html", order=order)
 
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0')

@@ -1,10 +1,15 @@
 # pip3 install -r requirements.txt
 
 Flask
-Flask-SQLAlchemy
+Flask-SQLAlchemy==2.1.0
+Jinja2
 SQLAlchemy
-pymysql
+Werkzeug
 flask_wtf
+pytest
+pytest-cov
+flask-testing
+pymysql
 wtforms
 wtforms.validators
 

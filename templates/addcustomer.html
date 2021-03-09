@@ -5,24 +5,24 @@
     <body>
         <div class='form'>
             <form method='POST' action=''>
-                {{ form.hidden_tag() }}
-                {{ form.first_name.label }} {{ form.first_name }}
-                <br>
-                {{ form.last_name.label }} {{ form.last_name }}
-                <br>
-                {{ form.email_address.label}} {{form.email_address}}
-                <br>
-                {{ form.submit }}
-                <br>
-                <br> <a href="/addproduct" type="button">Add New Product</a> </br>'
-                <br>
-                <br> <a href="/customerlist" type="button">Customer List</a> </br>'
-                <br>
-                <br> <a href="/orderlist" type="button">Order List</a> </br>'
-                <br>
-                <br> <a href="/productlist" type="button">Product List</a> </br>''
+            {{ form.hidden_tag() }}
+            {{ form.first_name.label }} {{ form.first_name }}
+            <br>
+            {{ form.last_name.label }} {{ form.last_name }}
+            <br>
+            {{ form.email_address.label}} {{form.email_address}}
+            <br>
+            {{ form.submit }}
             {{ message }}
             </form>
+            <br>
+            <br> <a href="{{url_for('addproduct')}}" type="button">Add New Product</a> </br>
+            <br>
+            <br> <a href="{{url_for('customerlist')}}" type="button">Customer List</a> </br>
+            <br>
+            <br> <a href="{{url_for('orderlist')}}" type="button">Order List</a> </br>
+            <br>
+            <br> <a href="{{url_for('productlist')}}" type="button">Product List</a> </br>
         </div>
     </body>
 </html>
