@@ -23,10 +23,6 @@ def add_products():
 @app.route('/customerlist')
 def read_customers():
     customer_table = customer.query.all()
-    # games_string = ""
-    # for game in all_games:
-    #     games_string += "<br>"+ game.name
-    # return games_string
     table = customer(customer_table)
     return table.__html__()
 
