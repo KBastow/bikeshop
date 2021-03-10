@@ -11,7 +11,7 @@ Text
 
 # Trello Board
 
-![Trello Board](C:\Desktop\Screenshot2021-03-10122141.png)
+![Trello Board](bikeshop/images/trelloboard.png)
 
 Text
 
