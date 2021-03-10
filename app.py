@@ -81,10 +81,11 @@ class OrderForm(FlaskForm):
 
     submit = SubmitField('Submit Order')
 
-@app.route('/addorder', methods=['GET', 'POST'])
-def add_order():
+@app.route('/addorder/<int:pid>', methods=['GET', 'POST'])
+def add_order(pid):
     error = ""
     form = OrderForm()
+    form.product_id_data = pid
 
     if request.method == 'POST':
         product_id = form.product_id.data

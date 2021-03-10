@@ -30,16 +30,16 @@
         <div>
             <table style="width:50%">
                 <tr>
-                    {% for o in order %}
                     <th>Product iD</th>
                     <th>Customer iD</th>
                     <th>Quantity</th>
                     <th>Total Price</th>
                     <th>Date Ordered</th>
                 </tr>
+                {% for o in order %}
                 <tr>
                     <td> {{ o.product_id }} </td>
-                    <td> {{ o.customer-id }}</td>
+                    <td> {{ o.customer_id }}</td>
                     <td> {{ o.quantity }} </td>
                     <td> {{ o.total_price }} </td>
                     <td> {{ o.date_ordered }} </td>
@@ -49,8 +49,6 @@
             <br> <a href="{{url_for('add_customer')}}" type="button">Add New Customer</a> </br>
             <br>
             <br> <a href="{{url_for('add_product')}}" type="button">Add New Product</a> </br>
-            <br>
-            <br> <a href="{{url_for('add_order')}}" type="button">Add New Order</a> </br>
             <br>
             <br> <a href="{{url_for('customer_list')}}" type="button">Customer</a> </br>
             <br>

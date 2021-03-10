@@ -30,21 +30,21 @@
         <div>
             <table style="width:50%">
                 <tr>
-                    {% for p in product %}
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Create Order</th>
                 </tr>
+                {% for p in product %}
                 <tr>
                     <td>{{ p.product }}</td> 
                     <td>{{ p.quantity }}</td>
-                    <td>{{ p.price }}</td> 
+                    <td>{{ p.price }}</td>
+                    <td> <a href ="/addorder/{{p.id}}">Order This Bike</a></td>
                 </tr> {% endfor %}
             </table>
             <br>
             <br> <a href="{{url_for('add_customer')}}" type="button">Add New Customer</a> </br>
-            <br>
-            <br> <a href="{{url_for('add_order')}}" type="button">Add New Order</a> </br>
             <br>
             <br> <a href="{{url_for('add_product')}}" type="button">Add New Product</a> </br>
             <br>

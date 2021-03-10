@@ -20,7 +20,6 @@ class Order(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     total_price = db.Column(db.Integer, nullable=False)
     date_ordered = db.Column(db.Date, nullable=False)
-    # basket = db.relationship('Basket', backref='basket')
 
 # class Basket(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
