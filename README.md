@@ -3,7 +3,7 @@ Author: Kelvin Bastow
 
 # Project
 
-My Projects is to build an application allowing a 'Bikeshop' to organise their customers, products and orders. With list of bikes in stock, a customer list with relevant information, and then an order list for easy referencing.
+My project is to build an application allowing a bike shop to organise their customers, products and orders. With a list of bikes in stock, a customer list with relevant information, and then an order list to allow easy referencing to completed orders.
 
 # Requirements
 
@@ -23,13 +23,15 @@ A functioning front-end website and integrated API's, using Flask. Code fully in
 
 My Trello Board Progression, with a link to the most recent version [here][trello-link]!
 
+This shows you my backlog of tasks, what is currently being worked on and also what has been completed.
+
 [trello-link]: https://trello.com/b/DM3YN6AK/devops-project-1
 
 # Database Diagram
 
 ![Database Diagram](/images/bikeshop.jpg)
 
-This is a diagram showing how my databases interact, whilst this diagram shows 6 databases, there are only three. 'Add Customer' and 'Add Product' are separate tables, and then when you input the data into the text boxes and completing the required Info this will then update the data base and take you to the relevant page (Customer/Product List), then you can create an 'Order', again inputting the required data and this will then create an order and then once the order has been created, will take you to the 'Order List' Page.
+This is a diagram showing how my databases interact with each other, whilst this diagram shows 6 databases, there are only three. 'Add Customer' and 'Add Product' are separate tables, and then when you input the data into the text boxes and completing the required Info this will then update the data base and take you to the relevant page (Customer/Product List), then you can create an 'Order', again inputting the required data and this will then create an order and then once the order has been created, will take you to the 'Order List' Page.
 
 # Refrences
 
