@@ -11,13 +11,13 @@ Text
 
 # Trello Board
 
-![Trello Board](/images/bikeshop.jpg)
+![Trello Board](/images/trelloboard.png)
 
 My Trello Board Progression
 
 # Database Diagram
 
-![Database Diagram](/images/bikeshop.svg)
+![Database Diagram](/images/bikeshop.jpg)
 
 A Diagram Showing How My Databases Interact
 
