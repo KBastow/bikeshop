@@ -11,7 +11,7 @@ Text
 
 # Trello Board
 
-![Trello Board](/images/trelloboard.png)
+![Trello Board](/images/bikeshop.jpg)
 
 My Trello Board Progression
 
