@@ -3,17 +3,17 @@ Author: Kelvin Bastow
 
 # Project
 
-My Projects is a bike shop with database of bikes in stock, a customer list, and then an order list
+My Projects is too build an application allowing a 'bikeshop' to organise thir customer, product and order list. With database of bikes in stock, a customer list, and then an order list
 
 # Database
 
 Text
 
-# Title
+# Trello Board
 
 Text
 
-# Title
+# Database Diagram
 
 Text
 
