@@ -17,7 +17,7 @@ My Trello Board Progression
 
 # Database Diagram
 
-![Database Diagram]
+![Database Diagram](bikeshop/images/bikeshop.svg)
 
 A Diagram Showing How My Databases Interact
 
