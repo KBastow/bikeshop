@@ -15,4 +15,4 @@ wtforms.validators
 
 
 # python3 -m venv venv
-# source venv/bin/activatel
+# source venv/bin/activate
