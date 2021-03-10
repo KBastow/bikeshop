@@ -11,7 +11,7 @@ Text
 
 # Trello Board
 
-![Trello Board](bikeshop/images/trelloboard.png)
+![Trello Board](/images/trelloboard.png)
 
 Text
 
