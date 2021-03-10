@@ -11,7 +11,7 @@ Text
 
 # Trello Board
 
-![Trello Board](C:\Users\Kelvi\OneDrive\Pictures\Screenshot 2021-03-10 122141)
+![Trello Board](C:\Desktop\Screenshot 2021-03-10 122141)
 
 Text
 
