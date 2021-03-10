@@ -5,7 +5,7 @@ Author: Kelvin Bastow
 
 My Projects is too build an application allowing a 'bikeshop' to organise thir customer, product and order list. With database of bikes in stock, a customer list, and then an order list
 
-# Database
+# Requirments
 
 Text
 
@@ -13,11 +13,13 @@ Text
 
 ![Trello Board](/images/trelloboard.png)
 
-Text
+My Trello Board Progression
 
 # Database Diagram
 
-Text
+![Database Diagram]
+
+A Diagram Showing How My Databases Interact
 
 # Refrences
 
