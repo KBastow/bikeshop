@@ -29,7 +29,7 @@ My Trello Board Progression, with a link to the most recent version [here][trell
 
 ![Database Diagram](/images/bikeshop.jpg)
 
-A Diagram Showing How My Databases Interact, whilst this diagram shows 6 databases, there are only three. Add Customer and Add Product are separate tables, and then when you input the data into the text boxes and completing the required Info this will then update the data base and take you to the relevant page (Customer/Product List), then you can create an order, again inputting the required data and this will then create an order and then once the order has been created, will take you to the Order List Page.
+This is a diagram showing how my databases interact, whilst this diagram shows 6 databases, there are only three. 'Add Customer' and 'Add Product' are separate tables, and then when you input the data into the text boxes and completing the required Info this will then update the data base and take you to the relevant page (Customer/Product List), then you can create an 'Order', again inputting the required data and this will then create an order and then once the order has been created, will take you to the 'Order List' Page.
 
 # Refrences
 
