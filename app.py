@@ -95,6 +95,7 @@ def add_order():
 
         if len(str(product_id)) == 0 or len(str(customer_id)) == 0 or len(str(quantity)) == 0 or len(str(total_price)) == 0 or len(str(date_ordered)) == 0:
             error = "Please supply Order Details"
+            
         else:
             product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
             customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))

@@ -4,14 +4,14 @@
     </head>
     <style>
         table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
+        border: 1px solid black;
+        border-collapse: collapse;
         }
         th, td {
-            padding: 10px
+        padding: 10px
         }
         th {
-            text-align: left;
+        text-align: left;
         }
         tr:nth-child(even) {
         background-color: #eee;
@@ -36,9 +36,9 @@
                     <th>Price</th>
                 </tr>
                 <tr>
-                    <td> {{ p.product }} </td> 
-                    <td> {{ p.quantity }}</td>
-                    <td> {{ p.price }} </td> 
+                    <td>{{ p.product }}</td> 
+                    <td>{{ p.quantity }}</td>
+                    <td>{{ p.price }}</td> 
                 </tr> {% endfor %}
             </table>
             <br>
@@ -50,7 +50,7 @@
             <br>
             <br> <a href="{{url_for('customer_list')}}" type="button">Customer List</a> </br>
             <br>
-            <br> <a href="{{url_for('order_list')}}" type="button">Product List</a> </br>
+            <br> <a href="{{url_for('order_list')}}" type="button">Order List</a> </br>
         </div>
     </body>
 </html>
