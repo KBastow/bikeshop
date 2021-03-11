@@ -35,6 +35,7 @@
                     <th>Quantity</th>
                     <th>Total Price</th>
                     <th>Date Ordered</th>
+                    <th>Delete This Order</th>
                 </tr>
                 {% for o in order %}
                 <tr>
@@ -43,6 +44,7 @@
                     <td> {{ o.quantity }} </td>
                     <td> {{ o.total_price }} </td>
                     <td> {{ o.date_ordered }} </td>
+                    <td> <a href ="/deleteorder/{{o.id}}">Delete This Order</a></td>
                 </tr> {% endfor %} 
             </table>
             <br>

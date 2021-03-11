@@ -3,7 +3,6 @@
 Flask
 Flask-SQLAlchemy==2.1.0
 Jinja2
-SQLAlchemy
 Werkzeug
 flask_wtf
 pytest

@@ -164,10 +164,12 @@ def order_list():
 
 #DELETE ORDER
 
-# @app.route("/deleteorder")
-# def delete_order():
-#     delete = models.Order.query.all()
-#     return render_template("orderlist.html", delete=delete)
+@app.route("/deleteorder/<int:oid>")
+def delete_order(oid):
+    order_to_delete = order.query.filter_by(id=oid).first()
+    db.session.delete(order_to_delete)
+    db.session.commit()
+    return redirect("/orderlist")
 
 #BASKET
 
