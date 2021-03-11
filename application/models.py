@@ -6,7 +6,7 @@ class Customer(db.Model):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     email_address = db.Column(db.String(50), nullable=False)
-    orders = db.relationship('Order', backref= 'orders')
+    orders = db.relationship('Orders', backref= 'orders')
 
 class Products(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,7 +14,7 @@ class Products(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
 
-class Order(db.Model):
+class Orders(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
     customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))

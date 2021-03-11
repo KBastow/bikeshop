@@ -1,5 +1,5 @@
 from application import app, db
-from application.models import Products, Customer, Order
+from application.models import Products, Customer, Orders
 
 # CREATE
 @app.route('/add/customer')

@@ -83,11 +83,12 @@ class OrderForm(FlaskForm):
 
     submit = SubmitField('Submit Order')
 
-@app.route('/addorder/<int:pid>', methods=['GET', 'POST'])
-def add_order(pid):
+@app.route('/addorder/<int:pid>/<int:cid>', methods=['GET', 'POST'])
+def add_order(pid, cid):
     error = ""
     form = OrderForm()
     form.product_id_data = pid
+    form.customer_id_data = cid
 
     if request.method == 'POST':
         product_id = form.product_id.data
@@ -153,20 +154,21 @@ def customer_list():
 @app.route("/productlist")
 def product_list():
     product = models.Products.query.all()
-    return render_template("productlist.html", product=product)
+    customer = models.Customer.query.all()
+    return render_template("productlist.html", product=product, customer=customer)
 
 #ORDER LIST
 
 @app.route("/orderlist")
 def order_list():
-    order = models.Order.query.all()
+    order = models.Orders.query.all()
     return render_template("orderlist.html", order=order)
 
 #DELETE ORDER
 
 @app.route("/deleteorder/<int:oid>")
 def delete_order(oid):
-    order_to_delete = order.query.filter_by(id=oid).first()
+    order_to_delete = orders.query.filter_by(id=oid).first()
     db.session.delete(order_to_delete)
     db.session.commit()
     return redirect("/orderlist")
