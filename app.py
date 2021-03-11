@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateField, IntegerField, DecimalField
 
+#this is where the website is created, it's a MUST
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
@@ -16,6 +17,7 @@ class CustomerForm(FlaskForm):
 
     submit = SubmitField('Add Customer to Database')
 
+#this then creates the main directory aka the homepage where everything falls back onto
 @app.route('/')
 @app.route('/addcustomer', methods=['GET', 'POST'])
 def add_customer():
@@ -160,6 +162,13 @@ def order_list():
     order = models.Order.query.all()
     return render_template("orderlist.html", order=order)
 
+#DELETE ORDER
+
+# @app.route("/deleteorder")
+# def delete_order():
+#     delete = models.Order.query.all()
+#     return render_template("orderlist.html", delete=delete)
+
 #BASKET
 
 # @app.route("/basket")
@@ -167,5 +176,7 @@ def order_list():
 #     order = models.Basket.query.all()
 #     return render_template("basket.html", basket=basket)
 
+#this code then allows the application to run from the app.py code
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0')
+#you then type python3 app.py in the termainal and voila

@@ -1,5 +1,6 @@
 from application import app, db
 
+# This is how a table in the database is created:
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)

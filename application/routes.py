@@ -1,9 +1,6 @@
 from application import app, db
 from application.models import Products, Customer, Order
 
-# from application import app, db
-# from application.models import Games
-
 # CREATE
 @app.route('/add/customer')
 def add_customers():
