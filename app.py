@@ -147,7 +147,11 @@ def add_order(pid, cid):
 @app.route("/customerlist")
 def customer_list():
     customer = models.Customer.query.all()
+    # return render_template()
+    # return redirect('/productlist')
     return render_template("customerlist.html", customer=customer)
+    
+
 
 # PRODUCT LIST
 
