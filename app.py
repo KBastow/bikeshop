@@ -2,6 +2,7 @@ from application import app, models, db
 from flask import Flask, render_template, request, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateField, IntegerField, DecimalField
+from datetime import datetime
 
 #this is where the website is created, it's a MUST
 app = Flask(__name__)
@@ -87,8 +88,9 @@ class OrderForm(FlaskForm):
 def add_order(pid, cid):
     error = ""
     form = OrderForm()
-    form.product_id_data = pid
-    form.customer_id_data = cid
+    form.product_id.data = pid
+    form.customer_id.data = cid
+    form.date_ordered.data = datetime.now()
 
     if request.method == 'POST':
         product_id = form.product_id.data
@@ -97,15 +99,14 @@ def add_order(pid, cid):
         total_price = form.total_price.data
         date_ordered = form.date_ordered.data
 
-        if len(str(product_id)) == 0 or len(str(customer_id)) == 0 or len(str(quantity)) == 0 or len(str(total_price)) == 0 or len(str(date_ordered)) == 0:
-            error = "Please supply Order Details"
+        #if len(str(product_id)) == 0 or len(str(customer_id)) == 0 or len(str(quantity)) == 0 or len(str(total_price)) == 0 or len(str(date_ordered)) == 0:
+        if len(str(quantity)) == 0 or len(str(total_price)) == 0:
+            error = "Please Add Quantity and Price"
             
         else:
-            product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
-            customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
-            quantity = db.Column(db.Integer, nullable=False)
-            total_price = db.Column(db.Integer, nullable=False)
-            date_ordered = db.Column(db.Date, nullable=False)
+            new_order = models.Orders(product_id= form.product_id.data, customer_id= form.customer_id.data, quantity= form.quantity.data, total_price= form.total_price.data, date_ordered= form.date_ordered.data)
+            db.session.add(new_order)
+            db.session.commit()
 
             return redirect('/orderlist')
 
@@ -150,8 +151,6 @@ def customer_list():
     # return render_template()
     # return redirect('/productlist')
     return render_template("customerlist.html", customer=customer)
-    
-
 
 # PRODUCT LIST
 
@@ -160,6 +159,14 @@ def product_list():
     product = models.Products.query.all()
     customer = models.Customer.query.all()
     return render_template("productlist.html", product=product, customer=customer)
+
+# PRODUCT LIST FOR CUSTOMER
+
+@app.route("/productlist/<int:cid>")
+def product_list_for_customer(cid):
+    product = models.Products.query.all()
+    #customer = models.Customer.query.all()
+    return render_template("productlist_c.html", product=product, cid=cid)
 
 #ORDER LIST
 
@@ -172,7 +179,7 @@ def order_list():
 
 @app.route("/deleteorder/<int:oid>")
 def delete_order(oid):
-    order_to_delete = orders.query.filter_by(id=oid).first()
+    order_to_delete = models.Orders.query.filter_by(id=oid).first()
     db.session.delete(order_to_delete)
     db.session.commit()
     return redirect("/orderlist")

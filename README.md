@@ -33,6 +33,12 @@ This shows you my backlog of tasks, what is currently being worked on and also w
 
 This is a diagram showing how my databases interact with each other, whilst this diagram shows 6 databases, there are only three. 'Add Customer' and 'Add Product' are separate tables, and then when you input the data into the text boxes and completing the required Info this will then update the data base and take you to the relevant page (Customer/Product List), then you can create an 'Order', again inputting the required data and this will then create an order and then once the order has been created, will take you to the 'Order List' Page.
 
+# My Development Pipeline
+
+![BikeShopPipeline](/images/bikeshoppipeline.jpg)
+
+Text
+
 # Refrences
 
 Calculator Script from javatpoint.com
