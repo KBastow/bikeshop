@@ -3,9 +3,9 @@ from application import app, db
 # This is how a table in the database is created:
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
+    first_name = db.Column(db.String(50), unique=True, nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    email_address = db.Column(db.String(50), nullable=False)
+    email_address = db.Column(db.String(50),unique=True, nullable=False)
     orders = db.relationship('Orders', backref= 'orders')
 
 class Products(db.Model):

@@ -3,8 +3,9 @@ from flask import Flask, render_template, request, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateField, IntegerField, DecimalField
 from datetime import datetime
+import sys
 
-#this is where the website is created, it's a MUST
+#This is where the website is created, it's a MUST
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
@@ -18,8 +19,8 @@ class CustomerForm(FlaskForm):
 
     submit = SubmitField('Add Customer to Database')
 
-#this then creates the main directory aka the homepage where everything falls back onto
-@app.route('/')
+#This then creates the main directory aka the homepage where everything falls back onto
+@app.route('/', methods =['GET', 'POST'])
 @app.route('/addcustomer', methods=['GET', 'POST'])
 def add_customer():
     error = ""
@@ -33,12 +34,13 @@ def add_customer():
         if len(first_name) == 0 or len(last_name) == 0 or len(email_address) == 0:
             error = "Please supply both first, last name and email"
         else:
-            
-            new_customer = models.Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
-            db.session.add(new_customer)
-            db.session.commit()
-
-            return redirect('/customerlist')
+            try:
+                new_customer = models.Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
+                db.session.add(new_customer)
+                db.session.commit()
+                return redirect('/customerlist')
+            except:
+                error = "This Name Has Already Been Added"
 
     return render_template('addcustomer.html', form=form, message=error)
 
@@ -165,7 +167,6 @@ def product_list():
 @app.route("/productlist/<int:cid>")
 def product_list_for_customer(cid):
     product = models.Products.query.all()
-    #customer = models.Customer.query.all()
     return render_template("productlist_c.html", product=product, cid=cid)
 
 #ORDER LIST
