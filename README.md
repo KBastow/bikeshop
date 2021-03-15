@@ -19,7 +19,7 @@ A functioning front-end website and integrated API's, using Flask. Code fully in
 
 # Trello Board
 
-![Trello Board](/images/trelloboard.png)
+![Trello Board](/images/Trello Board.jpg)
 
 My Trello Board Progression, with a link to the most recent version [here][trello-link]!
 
