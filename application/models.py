@@ -22,9 +22,6 @@ class Orders(db.Model):
     total_price = db.Column(db.Integer, nullable=False)
     date_ordered = db.Column(db.Date, nullable=False)
 
-#class Delete(db.model)
-
-
 # class Basket(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))

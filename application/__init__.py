@@ -5,7 +5,8 @@ from flask import Flask
 #this is where the website is created, it's a MUST
 app = Flask(__name__)
 #remote db, this is connecting to the SQL Database(DB) from my Virtual Machine (VM)
-app.config["SQLALCHEMY_DATABASE_URI"]='mysql+pymysql://root:devops@34.105.250.189/bikeshop'
+#app.config["SQLALCHEMY_DATABASE_URI"]='mysql+pymysql://root:devops@34.105.250.189/bikeshop'
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///my.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=True
 
 db = SQLAlchemy(app)

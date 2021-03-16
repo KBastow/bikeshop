@@ -8,7 +8,7 @@ from app import app
 class TestBase(TestCase):
     def create_app(self):
         # Pass in testing configurations for the app. Here we use sqlite without a persistent database for our tests.
-        app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///",
+        app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///data.db",
                 SECRET_KEY='TEST_SECRET_KEY',
                 DEBUG=True,
                 WTF_CSRF_ENABLED=False
@@ -20,9 +20,9 @@ class TestBase(TestCase):
         # Create table
         db.create_all()
         # Create test registree
-        customer = Customer(first_name = "David", last_name = "Bastow", email_address = "davidbastow@outlook.com")
-        product = Products(product = "Canyon Ultimate CFR Disc Di2", quantity = "20", price = "8649")
-        orders = Orders(product_id = "1", customer_id = "1", quantity = "1", total_price = "8649", date_ordered = datetime.now())
+        customer = Customer(first_name = "Kelvin", last_name = "Bastow", email_address = "kelvinbastow@outlook.com")
+        product = Products(product = "Canyon Ultimate CFR Disc Di2", quantity = 20, price = 8649)
+        orders = Orders(product_id = 1, customer_id = 1, quantity = 1, total_price = 8649, date_ordered = datetime.now())
         # save users to database
         db.session.add(customer)
         db.session.add(product)
@@ -48,7 +48,7 @@ class TestAddProduct(TestBase):
 
 class TestAddOrder(TestBase):
     def test_add_order(self):
-        response = self.client.get(url_for('add_order'))
+        response = self.client.get(url_for('add_order', cid=1, pid=1))
         self.assertEqual(response.status_code, 200)
 
 # TEST ADDING
@@ -65,7 +65,7 @@ class TestAddProductDB(TestBase):
     def test_add_product_db(self):
         response = self.client.post(
             url_for('add_product'),
-            data = dict(product = "Canyon Ultimate CFR Disc EPS", quantity = "20", price = "9749"),
+            data = dict(product = "Canyon Ultimate CFR Disc EPS", quantity = 20, price = 9749),
             follow_redirects=True
         )
         self.assertIn(b'Canyon Ultimate CFR Disc EPS',response.data)
@@ -73,8 +73,17 @@ class TestAddProductDB(TestBase):
 class TestAddOrderDB(TestBase):
     def test_add_order_db(self):
         response = self.client.post(
-            url_for('add_order'),
-            data = dict(product_id = "2", customer_id = "2", quantity = "1", total_price = "9749", date_ordered = datetime.now()),
+            url_for('add_order', cid=1, pid=1),
+            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
+            follow_redirects=True
+        )
+        self.assertIn(b'1',response.data)
+
+class TestDeleteOrderDB(TestBase):
+    def test_delete_order_db(self):
+        response = self.client.post(
+            url_for('delete_order', oid=1),
+            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
             follow_redirects=True
         )
         self.assertIn(b'2',response.data)
