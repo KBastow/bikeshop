@@ -37,7 +37,8 @@ This is a diagram showing how my databases interact with each other, whilst this
 
 ![BikeShopPipeline](/images/bikeshoppipeline.jpg)
 
-This is a diagram showing the flow of my pipeline and how I have intregrated all that we have been taught.
+This is a diagram showing the flow of my pipeline and how I have integrated all that we have been taught.
+So, all my code is written in VsCode, and is linked to my GitHub repository. All my changes are pushed to my develop branch to make sure that there are no conflicts between branches. Then my testing is again written in VsCode and is tested using pytest to make sure that there are no major errors in my code and the pass rate returns at 80% or above. If successful is then pushed to my master branch and then using Jenkins is pushed to the host website. If unsuccessful I return to the previous step and check the errors in my code and fix any issues.
 
 # Refrences
 
