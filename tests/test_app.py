@@ -7,7 +7,6 @@ from app import app
 
 class TestBase(TestCase):
     def create_app(self):
-
         # Pass in testing configurations for the app. Here we use sqlite without a persistent database for our tests.
         app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///",
                 SECRET_KEY='TEST_SECRET_KEY',
@@ -17,28 +16,21 @@ class TestBase(TestCase):
         return app
 
     def setUp(self):
-        """
-        Will be called before every test
-        """
+        #Will be called before every test
         # Create table
         db.create_all()
-
         # Create test registree
-        customer = Customer(first_name = "Kelvin", last_name = "Bastow", email_address = "kelvinbastow@outlook.com")
+        customer = Customer(first_name = "David", last_name = "Bastow", email_address = "davidbastow@outlook.com")
         product = Products(product = "Canyon Ultimate CFR Disc Di2", quantity = "20", price = "8649")
-        order = Orders(product_id = "1", customer_id = "1", quantity = "1", total_price = "8649", date_ordered = datetime.now())
-
+        orders = Orders(product_id = "1", customer_id = "1", quantity = "1", total_price = "8649", date_ordered = datetime.now())
         # save users to database
         db.session.add(customer)
         db.session.add(product)
-        db.session.add(order)
+        db.session.add(orders)
         db.session.commit()
 
     def tearDown(self):
-        """
-        Will be called after every test
-        """
-
+        #Will be called after every test
         db.session.remove()
         db.drop_all()
 
@@ -59,7 +51,7 @@ class TestAddOrder(TestBase):
         response = self.client.get(url_for('add_order'))
         self.assertEqual(response.status_code, 200)
 
-# # Test adding 
+# TEST ADDING
 class TestAddCustomerDB(TestBase):
     def test_add_customer_db(self):
         response = self.client.post(

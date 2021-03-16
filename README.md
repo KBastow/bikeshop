@@ -19,13 +19,13 @@ A functioning front-end website and integrated API's, using Flask. Code fully in
 
 # Trello Board
 
-![Trello Board](/images/TrelloBoard.jpg)
+![Trello Board](/images/trelloboard.jpg)
 
 My Trello Board Progression, with a link to the most recent version [here][trello-link]!
 
 This shows you my backlog of tasks, what is currently being worked on and also what has been completed.
 
-[trello-link]: https://trello.com/b/DM3YN6AK/devops-project-1
+[trello-link]: https://trello.com/b/I7coDWDj/bikeshop
 
 # Database Diagram
 
@@ -37,7 +37,7 @@ This is a diagram showing how my databases interact with each other, whilst this
 
 ![BikeShopPipeline](/images/bikeshoppipeline.jpg)
 
-Text
+This is a diagram showing the flow of my pipeline and how I have intregrated all that we have been taught.
 
 # Refrences
 
