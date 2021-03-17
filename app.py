@@ -1,12 +1,9 @@
-from application import app, models, db
+from  application import app, models, db
 from flask import Flask, render_template, request, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateTimeField, IntegerField, DecimalField
 from datetime import datetime
 import sys
-
-#This is where the website is created, it's a MUST
-app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
 
@@ -34,13 +31,13 @@ def add_customer():
         if len(first_name) == 0 or len(last_name) == 0 or len(email_address) == 0:
             error = "Please supply both first, last name and email"
         else:
-            #try:
-            new_customer = models.Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
-            db.session.add(new_customer)
-            db.session.commit()
-            return redirect('/customerlist')
-            #except:
-                #error = "This Name Has Already Been Added"
+            try:
+                new_customer = models.Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
+                db.session.add(new_customer)
+                db.session.commit()
+                return redirect('/customerlist')
+            except:
+                error = "This Name Has Already Been Added"
 
     return render_template('addcustomer.html', form=form, message=error)
 

@@ -5,9 +5,9 @@ from application import app, db
 #unique=True
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
+    first_name = db.Column(db.String(50), unique=True, nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    email_address = db.Column(db.String(50), nullable=False)
+    email_address = db.Column(db.String(50), unique=True, nullable=False)
     orders = db.relationship('Orders', backref= 'orders')
 
 class Products(db.Model):
@@ -23,9 +23,3 @@ class Orders(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     total_price = db.Column(db.Integer, nullable=False)
     date_ordered = db.Column(db.DateTime, nullable=False)
-
-# class Basket(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
-#     quantity = db.Column(db.Integer, nullable=False)
-#     order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
