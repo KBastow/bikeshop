@@ -1,7 +1,7 @@
 # pip3 install -r requirements.txt
 
 Flask
-Flask-SQLAlchemy==2.1.0
+Flask-SQLAlchemy
 Jinja2
 Werkzeug
 flask_wtf
@@ -11,6 +11,7 @@ flask-testing
 pymysql
 wtforms
 wtforms.validators
+SQLAlchemy<1.4
 
 
 # python3 -m venv venv
