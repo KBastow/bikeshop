@@ -1,7 +1,7 @@
 from application import app, models, db
 from flask import Flask, render_template, request, redirect
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, DateField, IntegerField, DecimalField
+from wtforms import StringField, SubmitField, DateTimeField, IntegerField, DecimalField
 from datetime import datetime
 import sys
 
@@ -34,13 +34,13 @@ def add_customer():
         if len(first_name) == 0 or len(last_name) == 0 or len(email_address) == 0:
             error = "Please supply both first, last name and email"
         else:
-            try:
-                new_customer = models.Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
-                db.session.add(new_customer)
-                db.session.commit()
-                return redirect('/customerlist')
-            except:
-                error = "This Name Has Already Been Added"
+            #try:
+            new_customer = models.Customer(first_name= form.first_name.data, last_name=form.last_name.data, email_address=form.email_address.data)
+            db.session.add(new_customer)
+            db.session.commit()
+            return redirect('/customerlist')
+            #except:
+                #error = "This Name Has Already Been Added"
 
     return render_template('addcustomer.html', form=form, message=error)
 
@@ -82,7 +82,7 @@ class OrderForm(FlaskForm):
     customer_id = IntegerField('Customer iD')
     quantity = IntegerField('Quantity')
     total_price = IntegerField('Total Price')
-    date_ordered = DateField('Date Ordered')
+    date_ordered = DateTimeField('Date Ordered')
 
     submit = SubmitField('Submit Order')
 
@@ -101,7 +101,6 @@ def add_order(pid, cid):
         total_price = form.total_price.data
         date_ordered = form.date_ordered.data
 
-        #if len(str(product_id)) == 0 or len(str(customer_id)) == 0 or len(str(quantity)) == 0 or len(str(total_price)) == 0 or len(str(date_ordered)) == 0:
         if len(str(quantity)) == 0 or len(str(total_price)) == 0:
             error = "Please Add Quantity and Price"
             

@@ -5,6 +5,8 @@ from application.models import Customer, Products, Orders
 from datetime import datetime
 from app import app
 
+#pytest --cov=app --cov-report=term-missing
+
 class TestBase(TestCase):
     def create_app(self):
         # Pass in testing configurations for the app. Here we use sqlite without a persistent database for our tests.
