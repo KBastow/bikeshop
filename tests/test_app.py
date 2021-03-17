@@ -6,6 +6,7 @@ from datetime import datetime
 from app import app
 
 #pytest --cov=app --cov-report=term-missing
+#pytest --cov . --cov-report html
 
 class TestBase(TestCase):
     def create_app(self):
