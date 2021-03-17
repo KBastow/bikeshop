@@ -42,6 +42,6 @@ So, all my code is written in VsCode, and is linked to my GitHub repository. All
 
 # Refrences
 
-All my knowledge has been from my teacher Dara Oladapo
-for any HTML querys I used https://www.w3schools.com/html/default.asp
-for any of my python querys I used https://thepythonguru.com/ and https://www.w3schools.com/python/default.asp
+- All my knowledge has been from my teacher Dara Oladapo
+- For any HTML querys I used https://www.w3schools.com/html/default.asp
+- For any of my python querys I used https://thepythonguru.com/ and https://www.w3schools.com/python/default.asp
