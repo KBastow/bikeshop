@@ -54,29 +54,46 @@ class TestAddOrder(TestBase):
         response = self.client.get(url_for('add_order', cid=1, pid=1))
         self.assertEqual(response.status_code, 200)
 
-# TEST ADDING
+#CUSTOMER
 class TestAddCustomerDB(TestBase):
     def test_add_customer_db(self):
-        response = self.client.post(
-            url_for('add_customer'),
+        response = self.client.post(url_for('add_customer'),
             data = dict(first_name = "Nathan", last_name = "Phillips", email_address = "nathanphillips@gmail.com"),
             follow_redirects=True
         )
         self.assertIn(b'Nathan',response.data)
 
+class TestDeleteCustomerDB(TestBase):
+    def test_delete_customer_db(self):
+        response = self.client.post(url_for('delete_customer', cid=1),
+            data = dict(first_name = "Nathan", last_name = "Phillips", email_address = "nathanphillips@gmail.com"),
+            follow_redirects=True
+        )
+        self.assertIn(b'2',response.data)
+
+#PRODCUT
+
 class TestAddProductDB(TestBase):
     def test_add_product_db(self):
-        response = self.client.post(
-            url_for('add_product'),
+        response = self.client.post(url_for('add_product'),
             data = dict(product = "Canyon Ultimate CFR Disc EPS", quantity = 20, price = 9749),
             follow_redirects=True
         )
         self.assertIn(b'Canyon Ultimate CFR Disc EPS',response.data)
 
+class TestDeleteProductDB(TestBase):
+    def test_delete_product_db(self):
+        response = self.client.post(url_for('delete_product', pid=1),
+            data = dict(product = "Canyon Ultimate CFR Disc EPS", quantity = 20, price = 9749),
+            follow_redirects=True
+        )
+        self.assertIn(b'2',response.data)
+
+#ORDER
+
 class TestAddOrderDB(TestBase):
     def test_add_order_db(self):
-        response = self.client.post(
-            url_for('add_order', cid=1, pid=1),
+        response = self.client.post(url_for('add_order', cid=1, pid=1),
             data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
             follow_redirects=True
         )
@@ -84,9 +101,16 @@ class TestAddOrderDB(TestBase):
 
 class TestDeleteOrderDB(TestBase):
     def test_delete_order_db(self):
-        response = self.client.post(
-            url_for('delete_order', oid=1),
+        response = self.client.post(url_for('delete_order', oid=1),
             data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
             follow_redirects=True
         )
         self.assertIn(b'2',response.data)
+
+# class TestToUpdateOrder(TestBase):
+#     def test_update_order_db(self):
+#         response = self.client.post(url_for('update_order', oid=1).
+#             data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
+#             follow_redirects=True
+#         )
+#         self.assertIn(b'3',response.data)

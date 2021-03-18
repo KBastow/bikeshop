@@ -110,37 +110,6 @@ def add_order(pid, cid):
 
     return render_template('addorder.html', form=form, message=error)
 
-#BASKET
-
-# class BasicForm(FlaskForm):
-#     product_id = StringField('First Name')
-#     quantity = StringField('Last Name')
-#     customer_id = IntegerField('Mobile Number')
-
-#     submit = SubmitField('Add Customer to Database')
-
-# @app.route('/customerprofile', methods=['GET', 'POST'])
-# def register():
-#     error = ""
-#     form = BasicForm()
-
-#     if request.method == 'POST':
-#         first_name = form.first_name.data
-#         last_name = form.last_name.data
-#         contact_number = form.contact_number.data
-
-#         if len(first_name) == 0 or len(last_name) == 0:
-#             error = "Please supply both first and last name"
-#         else:
-#             return ('thank_you', first_name)
-
-#         if IntegerField(contact_number) == '0':
-#             error = "Please Add Mobile Number"
-#         else:
-#             return ('Customer Has Been Added')
-
-#     return render_template('customerprofile.html', form=form, message=error)
-
 #CUSTOMER LIST
 
 @app.route("/customerlist")
@@ -172,6 +141,55 @@ def order_list():
     order = models.Orders.query.all()
     return render_template("orderlist.html", order=order)
 
+#UPDATE ORDER
+
+@app.route('/updateorder/<int:oid>', methods=['GET','POST'])
+def update_order(oid):
+    order_to_update = models.Orders.query.filter_by(id=oid).first()
+    error = ""
+    form = OrderForm()
+
+    if request.method == 'POST':
+        order_to_update.product_id = form.product_id.data
+        order_to_update.customer_id = form.customer_id.data
+        order_to_update.quantity = form.quantity.data
+        order_to_update.total_price = form.total_price.data
+        order_to_update.date_ordered = form.date_ordered.data
+
+        if len(str(form.quantity.data)) == 0 or len(str(form.total_price.data)) == 0:
+            error = "Please Add Quantity and Price"
+            
+        else:
+            db.session.commit()
+            return redirect('/orderlist')
+
+    else:
+        form.product_id.data = order_to_update.product_id
+        form.quantity.data = order_to_update.quantity
+        form.total_price.data = order_to_update.total_price
+        form.date_ordered.data = order_to_update.date_ordered
+    
+
+    return render_template('addorder.html', form=form, message=error)
+
+#DELETE CUSTOMER
+
+@app.route("/deletecustomer/<int:cid>")
+def delete_customer(cid):
+    customer_to_delete = models.Customer.query.filter_by(id=cid).first()
+    db.session.delete(customer_to_delete)
+    db.session.commit()
+    return redirect("/customerlist")
+
+#DELETE PRODUCT
+
+@app.route("/deleteproduct/<int:pid>")
+def delete_product(pid):
+    order_to_delete = models.Products.query.filter_by(id=pid).first()
+    db.session.delete(order_to_delete)
+    db.session.commit()
+    return redirect("/productlist")
+
 #DELETE ORDER
 
 @app.route("/deleteorder/<int:oid>")
@@ -181,14 +199,7 @@ def delete_order(oid):
     db.session.commit()
     return redirect("/orderlist")
 
-#BASKET
-
-# @app.route("/basket")
-# def basket():
-#     order = models.Basket.query.all()
-#     return render_template("basket.html", basket=basket)
-
-#this code then allows the application to run from the app.py code
+#This code then allows the application to run from the app.py code
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0')
-#you then type python3 app.py in the termainal and voila
+#You then type python3 app.py in the termainal and voila

@@ -34,6 +34,7 @@
                     <th>Last Name</th>
                     <th>Email Address</Address></th>
                     <th>Create Order</th>
+                    <th>Delete This Customer</th>
                 </tr>
                 {% for c in customer %}
                 <tr>
@@ -41,6 +42,7 @@
                     <td>{{ c.last_name }}</td>
                     <td>{{ c.email_address }}</td>
                     <td> <a href ="/productlist/{{c.id}}">Show Me The Bikes</a></td>
+                    <td> <a href ="/deletecustomer/{{c.id}}">Delete This Customer</a></td>
                 </tr> {% endfor %}
             </table>
             <br>

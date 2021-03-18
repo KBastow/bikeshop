@@ -35,6 +35,7 @@
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Create Order</th>
+                    <th>Delete This Product</th>
                 </tr>
                 {% for p in product %}
                 <tr>
@@ -42,6 +43,7 @@
                     <td>{{ p.quantity }}</td>
                     <td>{{ p.price }}</td>
                     <td><a href ="/addorder/{{p.id}}/{{cid}}">Order This Bike</a></td>
+                    <td> <a href ="/deleteproduct/{{p.id}}">Delete This Product</a></td>
                 </tr> {% endfor %}
             </table>
             <br>
