@@ -29,16 +29,16 @@ This shows you my backlog of tasks, what is currently being worked on and also w
 
 # Database Diagram
 
-![Database Diagram](/images/bikeshop.jpg)
+![Database Diagram](/images/bikeshoptable.png)
 
 This is a diagram showing how my databases interact with each other, whilst this diagram shows 6 databases, there are only three. 'Add Customer' and 'Add Product' are separate tables, and then when you input the data into the text boxes and completing the required Info this will then update the data base and take you to the relevant page (Customer/Product List), then you can create an 'Order', again inputting the required data and this will then create an order and then once the order has been created, will take you to the 'Order List' Page.
 
 # My Development Pipeline
 
-![BikeShopPipeline](/images/bikeshoppipeline.jpg)
+![BikeShopPipeline](/images/bikeshoppipeline.png)
 
 This is a diagram showing the flow of my pipeline and how I have integrated all that we have been taught.
-So, all my code is written in VsCode, and is linked to my GitHub repository. All my changes are pushed to my develop branch to make sure that there are no conflicts between branches. Then my testing is again written in VsCode and is tested using pytest to make sure that there are no major errors in my code and the pass rate returns at 80% or above. If successful is then pushed to my master branch and then using Jenkins is pushed to the host website. If unsuccessful I return to the previous step and check the errors in my code and fix any issues.
+So, all my code is written in VsCode, and is linked to my GitHub repository. All my changes are pushed to my develop branch to make sure that there are no conflicts between branches. Then my testing is again written in VsCode and is tested using pytest to make sure that there are no errors in my code and the pass rate returns at 80% or above. If successful it then pushed to my develop branch before merging with the master branch. If unsuccessful I return to the previous step and check the errors in my code and fix any issues. Using Jenkins the app is able to run live of of the master branch and this is where the website is hosted.
 
 # Refrences
 
