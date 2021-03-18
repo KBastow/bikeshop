@@ -38,7 +38,7 @@ This is a diagram showing how my databases interact with each other, whilst this
 ![BikeShopPipeline](/images/bikeshoppipeline.png)
 
 This is a diagram showing the flow of my pipeline and how I have integrated all that we have been taught.
-So, all my code is written in VsCode, and is linked to my GitHub repository. All my changes are pushed to my develop branch to make sure that there are no conflicts between branches. Then my testing is again written in VsCode and is tested using pytest to make sure that there are no errors in my code and the pass rate returns at 80% or above. If successful it then pushed to my develop branch before merging with the master branch. If unsuccessful I return to the previous step and check the errors in my code and fix any issues. Using Jenkins the app is able to run live of of the master branch and this is where the website is hosted.
+My SQL database is hosted GCP along with my Virtual Machine (VM). All my code is then written in VsCode, which is installed on my VM, and this is linked to my GitHub repository. All my changes are pushed to my develop branch to make sure that there are no conflicts between branches. Then my testing is again written in VsCode and is tested using pytest, this is to make sure that there are no errors in my code and that the pass rate returns at 80% or above. If successful and the pass rate is above 80%, the code is then pushed to my develop branch before merging with the master branch. If unsuccessful, or the pass rate is lower than 80% then I return to the previous step and check the errors in my code and fix any issues. Once the code has been pushed to my master branch, Jenkins can run and host the live application.
 
 # Refrences
 
