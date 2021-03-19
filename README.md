@@ -53,11 +53,6 @@ Here are a few images showing you the test results for my application folder and
 ![riskassesment](/images/riskassessment.jpg)
 
 
-
-# User Story
-
-
-
 # Refrences
 
 - All my knowledge has been given to me from my teacher Dara Oladapo :)
