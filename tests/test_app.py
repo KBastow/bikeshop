@@ -23,9 +23,10 @@ class TestBase(TestCase):
         # Create table
         db.create_all()
         # Create test registree
+        year,month,day = map(int,"2020/09/21".split('/'))
         customer = Customer(first_name = "Kelvin", last_name = "Bastow", email_address = "kelvinbastow@outlook.com")
         product = Products(product = "Canyon Ultimate CFR Disc Di2", quantity = 20, price = 8649)
-        orders = Orders(product_id = 1, customer_id = 1, quantity = 1, total_price = 8649, date_ordered = datetime.now())
+        orders = Orders(product_id = 1, customer_id = 1, quantity = 1, total_price = 8649, date_ordered = datetime(year, month, day))
         # Save users to database
         db.session.add(customer)
         db.session.add(product)
@@ -109,24 +110,27 @@ class TestDeleteProductDB(TestBase):
 
 class TestAddOrderDB(TestBase):
     def test_add_order_db(self):
+        year,month,day = map(int,"2020/09/21".split('/'))
         response = self.client.post(url_for('add_order', cid=1, pid=1),
-            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
+            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime(year,month,day)),
             follow_redirects=True
         )
         self.assertIn(b'5',response.data)
 
 class TesToDeleteOrderDB(TestBase):
     def test_delete_order_db(self):
+        year,month,day = map(int,"2020/09/21".split('/'))
         response = self.client.post(url_for('delete_order', oid=1),
-            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
+            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime(year,month,day)),
             follow_redirects=True
         )
         self.assertIn(b'5',response.data)
 
 class TestToUpdateOrderDB(TestBase):
     def test_update_order_db(self):
+        year,month,day = map(int,"2020/09/21".split('/'))
         response = self.client.post(url_for('update_order', oid=1),
-            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime.now()),
+            data = dict(product_id = 1, customer_id = 1, quantity = 1, total_price = 9749, date_ordered = datetime(year,month,day)),
             follow_redirects=True
         )
-        self.assertIn(b'5',response.data)
+        self.assertIn(b'4',response.data)
