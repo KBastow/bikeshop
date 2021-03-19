@@ -37,7 +37,7 @@ This is a diagram showing how my databases interact with each other, whilst this
 
 ![BikeShopPipeline](/images/bikeshoppipeline.png)
 
-This is a diagram showing the flow of my pipeline and how I have integrated all that we have been taught.
+This is a diagram showing you the flow of my pipeline and how I have integrated all that we have been taught.
 MySQL database is hosted on GCP along with my Virtual Machine (VM). All my code is then written in VsCode, which is installed on my VM, and this is linked to my GitHub repository. All my changes are pushed to my develop branch to make sure that there are no conflicts between branches. Then my testing is again written in VsCode and is tested using pytest, this is to make sure that there are no errors in my code and that the pass rate returns at 80% or above. If successful and the pass rate is above 80%, the code is then pushed to my develop branch before merging with the master branch. If unsuccessful, or the pass rate is lower than 80% then I return to the previous step and check the errors in my code and fix any issues. Once the code has been pushed to my master branch, Jenkins can run and host the live application.
 
 # Test Results
@@ -46,7 +46,7 @@ MySQL database is hosted on GCP along with my Virtual Machine (VM). All my code 
 
 ![pytestapp](/images/pytestapp.jpg)
 
-Here is a few images showing you the test results for my application folder and also my app.py file, this shows the amount of tests i have created and also the pass rates for each file as well.
+Here are a few images showing you the test results for my application folder and also my app.py file, this shows the amount of tests I have created and also the pass rates for each file as well.
 
 # Refrences
 
