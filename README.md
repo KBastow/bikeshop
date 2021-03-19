@@ -48,7 +48,7 @@ Here are a few images showing you the test results for my application folder and
 
 # Risk Assessment
 
-![riskassesment](/images/riskassessment.jpgg)
+![riskassesment](/images/riskassessment.jpg)
 
 Here is an image of my risk assessment
 
