@@ -46,7 +46,7 @@ MySQL database is hosted on GCP along with my Virtual Machine (VM). All my code 
 
 ![pytestapp](/images/pytestapp.jpg)
 
-Here is a few images showing you the test results for my application folder and also my app.py file
+Here is a few images showing you the test results for my application folder and also my app.py file, this shows the amount of tests i have created and also the pass rates for each file as well.
 
 # Refrences
 
