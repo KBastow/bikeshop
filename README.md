@@ -3,7 +3,7 @@ Author: Kelvin Bastow
 
 # Project
 
-My project is to build an application allowing a bike shop to organise their customers, products and orders. With a list of bikes in stock, a customer list with relevant information, and then an order list to allow easy referencing to completed orders.
+My project is to build an application allowing a bike shop to organise their customers, products and orders; with a list of bikes in stock, a customer list with relevant information, and then an order list to allow easy referencing to completed orders.
 
 # Requirements
 
@@ -19,7 +19,7 @@ My project is to build an application allowing a bike shop to organise their cus
 
 ![Trello Board](/images/trelloboard.jpg)
 
-My Trello Board Progression, with a link to the most recent version [here][trello-link]!
+My trello board progression, with a link to the most recent version [here][trello-link]!
 
 This shows you my backlog of tasks, what is currently being worked on and also what has been completed.
 
@@ -29,7 +29,7 @@ This shows you my backlog of tasks, what is currently being worked on and also w
 
 ![Database Diagram](/images/bikeshoptables.png)
 
-This is a diagram showing how my databases interact with each other, whilst this diagram shows 6 databases, there are only three. 'Add Customer' and 'Add Product' are separate tables, and then when you input the data into the text boxes and completing the required Info this will then update the data base and take you to the relevant page (Customer/Product List), then you can create an 'Order', again inputting the required data and this will then create an order and then once the order has been created, will take you to the 'Order List' Page.
+This is a diagram showing how my databases interact with each other. This shows 3 tables and 3 input pages. 'Add Customer' and 'Add Product' are separate tables but when you input the data into the text boxes and complete the required info, the information updates and moves you to the relevant following page (Customer/Product List). Then an 'Order' is created by again inputting the required data; this will then create an order and will take you to the 'Order List' Page.
 
 # My Development Pipeline
 
@@ -44,13 +44,11 @@ MySQL database is hosted on GCP along with my Virtual Machine (VM). All my code 
 
 ![pytestapp](/images/pytestapp.jpg)
 
-Here are a few images showing you the test results for my application folder and also my app.py file, this shows the amount of tests I have created and also the pass rates for each file as well.
+Here are two images showing you my test results from my application folder and also my app.py file, this shows the amount of tests I have created and also the pass rates for each file as well.
 
 # Risk Assessment
 
 ![riskassesment](/images/riskassessment.jpg)
-
-Here is an image of my risk assessment
 
 # Refrences
 
