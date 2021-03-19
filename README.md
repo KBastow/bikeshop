@@ -50,6 +50,7 @@ Here is a few images showing you the test results for my application folder and 
 
 # Refrences
 
-- All my knowledge has been from my teacher Dara Oladapo
+- All my knowledge has been given to me from my teacher Dara Oladapo :)
+- All me teaching had been from https://qa-community.co.uk/~/_/learning
 - For any HTML querys I used https://www.w3schools.com/html/default.asp
 - For any of my python querys I used https://thepythonguru.com/ and https://www.w3schools.com/python/default.asp
