@@ -42,7 +42,7 @@ MySQL database is hosted on GCP along with my Virtual Machine (VM). All my code 
 
 # Test Results
 
-![Testresults](/images/pytest.jpgg)
+![Testresults](/images/pytest.jpg)
 
 # Refrences
 
