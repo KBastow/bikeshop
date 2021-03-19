@@ -48,6 +48,16 @@ MySQL database is hosted on GCP along with my Virtual Machine (VM). All my code 
 
 Here are a few images showing you the test results for my application folder and also my app.py file, this shows the amount of tests I have created and also the pass rates for each file as well.
 
+# Risk Assessment
+
+![riskassesment](/images/riskassessment.jpg)
+
+
+
+# User Story
+
+
+
 # Refrences
 
 - All my knowledge has been given to me from my teacher Dara Oladapo :)
