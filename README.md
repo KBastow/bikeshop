@@ -42,9 +42,9 @@ MySQL database is hosted on GCP along with my Virtual Machine (VM). All my code 
 
 # Test Results
 
--![pytestapplication](/images/pytestapplication.jpg)
+![pytestapplication](/images/pytestapplication.jpg)
 
--![pytestapp](/images/pytestapp.jpg)
+![pytestapp](/images/pytestapp.jpg)
 
 Here is a few images showing you the test results for my application folder and also my app.py file
 
