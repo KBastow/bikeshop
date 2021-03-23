@@ -2,9 +2,9 @@
 FROM python:3.7
 # Copy contents into image
 WORKDIR /app
-# Install pip dependencies from requirements
+# Copy the app file into the image working directory
 COPY . .
-
+# Execute a pip install command using the list 'requirements.txt'
 RUN pip install -r requirements.txt
 # Set YOUR_NAME environment variable
 # Expose the correct port
