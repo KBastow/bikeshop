@@ -1,4 +1,4 @@
-from  application import app, models, db
+from application import app, models, db
 from flask import Flask, render_template, request, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateTimeField, IntegerField, DecimalField
