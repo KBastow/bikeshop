@@ -7,7 +7,7 @@ import sys
 
 app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
 
-#CUSTOMER PAGE
+# CUSTOMER PAGE
 
 class CustomerForm(FlaskForm):
     first_name = StringField('First Name')
@@ -16,7 +16,7 @@ class CustomerForm(FlaskForm):
 
     submit = SubmitField('Add Customer to Database')
 
-#This then creates the main directory aka the homepage where everything falls back onto
+# This then creates the main directory aka the homepage where everything falls back onto
 @app.route('/', methods =['GET', 'POST'])
 @app.route('/addcustomer', methods=['GET', 'POST'])
 def add_customer():
@@ -41,7 +41,7 @@ def add_customer():
 
     return render_template('addcustomer.html', form=form, message=error)
 
-#PRODCUTS PAGE
+# PRODCUTS PAGE
 
 class ProductForm(FlaskForm):
     product = StringField('Product Name')
@@ -72,7 +72,7 @@ def add_product():
 
     return render_template('addproduct.html', form=form, message=error)
 
-#ORDER PAGE
+# ORDER PAGE
 
 class OrderForm(FlaskForm):
     product_id = IntegerField('Product iD')
@@ -110,7 +110,7 @@ def add_order(pid, cid):
 
     return render_template('addorder.html', form=form, message=error)
 
-#CUSTOMER LIST
+# CUSTOMER LIST
 
 @app.route("/customerlist")
 def customer_list():
@@ -134,14 +134,14 @@ def product_list_for_customer(cid):
     product = models.Products.query.all()
     return render_template("productlist_c.html", product=product, cid=cid)
 
-#ORDER LIST
+# ORDER LIST
 
 @app.route("/orderlist")
 def order_list():
     order = models.Orders.query.all()
     return render_template("orderlist.html", order=order)
 
-#UPDATE ORDER
+# UPDATE ORDER
 
 @app.route('/updateorder/<int:oid>', methods=['GET','POST'])
 def update_order(oid):
@@ -172,7 +172,7 @@ def update_order(oid):
 
     return render_template('addorder.html', form=form, message=error)
 
-#DELETE CUSTOMER
+# DELETE CUSTOMER
 
 @app.route("/deletecustomer/<int:cid>")
 def delete_customer(cid):
@@ -181,7 +181,7 @@ def delete_customer(cid):
     db.session.commit()
     return redirect("/customerlist")
 
-#DELETE PRODUCT
+# DELETE PRODUCT
 
 @app.route("/deleteproduct/<int:pid>")
 def delete_product(pid):
@@ -190,7 +190,7 @@ def delete_product(pid):
     db.session.commit()
     return redirect("/productlist")
 
-#DELETE ORDER
+# DELETE ORDER
 
 @app.route("/deleteorder/<int:oid>")
 def delete_order(oid):
@@ -199,7 +199,7 @@ def delete_order(oid):
     db.session.commit()
     return redirect("/orderlist")
 
-#This code then allows the application to run from the app.py code
+# This code then allows the application to run from the app.py code
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0')
-#You then type python3 app.py in the termainal and voila
+# You then type python3 app.py in the terminal and voila
